@@ -44,7 +44,14 @@ find_package(Threads REQUIRED)
 find_package(ZLIB REQUIRED)
 
 ## openssl
+
+set( OPENSSL_ROOT_DIR "/usr/local/opt/openssl")
 find_package(OpenSSL REQUIRED)
+if ( OPENSSL_FOUND )
+    message(STATUS "OpenSSL Found: ${OPENSSL_VERSION}")
+    message(STATUS "OpenSSL Include: ${OPENSSL_INCLUDE_DIR}")
+    message(STATUS "OpenSSL Libraries: ${OPENSSL_LIBRARIES}")
+endif()
 include_directories(${OPENSSL_INCLUDE_DIR})
 
 ## curl
